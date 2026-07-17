@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import api from "@/store/api";
 import { Compass, CheckCircle2, Lock, Clock, ArrowRight, Plus, Star, Zap, Play, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,7 +17,7 @@ const PHASE_COLORS: Record<string, { bg: string; border: string; text: string; g
 const STATUS_ORDER = ["Locked", "Available", "In Progress", "Completed"];
 
 function NodeStatusBadge({ status }: { status: string }) {
-  const map: Record<string, JSX.Element> = {
+  const map: Record<string, React.ReactNode> = {
     "Completed": <span className="flex items-center gap-1 text-xs font-semibold text-green-400"><CheckCircle2 className="w-3.5 h-3.5" />Done</span>,
     "In Progress": <span className="flex items-center gap-1 text-xs font-semibold text-blue-400"><Clock className="w-3.5 h-3.5" />In Progress</span>,
     "Available": <span className="flex items-center gap-1 text-xs font-semibold text-white"><ArrowRight className="w-3.5 h-3.5" />Available</span>,

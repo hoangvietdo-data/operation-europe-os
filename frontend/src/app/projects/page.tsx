@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import api from "@/store/api";
-import { Folder, Plus, Github, ExternalLink, X, Edit2, Trash2, BarChart2, Trophy, Lightbulb } from "lucide-react";
+import { Folder, Plus, ExternalLink, X, Edit2, Trash2, BarChart2, Trophy, Lightbulb } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const PROJECT_TAGS = ["AI/ML", "Web Dev", "Research", "Mobile", "Data Science", "Open Source", "Design", "Leadership", "Community"];

@@ -13,7 +13,7 @@ export default function Analytics() {
   const [graphData, setGraphData] = useState({ nodes: [], links: [] });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeNode, setActiveNode] = useState<any>(null);
-  const graphRef = useRef<any>();
+  const graphRef = useRef<any>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -200,15 +200,7 @@ export default function Analytics() {
               }
             }}
             cooldownTicks={100}
-            // Use clustering force configuration natively supported
-            d3Force={(d3: any, data: any) => {
-              if(graphRef.current) {
-                // Shorten link distance so sub-nodes tightly cluster around domains
-                graphRef.current.d3Force('link').distance(40);
-                // Increase charge to prevent nodes from overlapping
-                graphRef.current.d3Force('charge').strength(-200);
-              }
-            }}
+
           />
         )}
         
