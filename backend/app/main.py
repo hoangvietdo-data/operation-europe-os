@@ -6,7 +6,7 @@ app = FastAPI(title="Operation Europe OS API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # For development, allow all
+    allow_origins=["*"], # In production, you'd restrict this
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
