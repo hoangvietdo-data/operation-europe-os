@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import api from "@/store/api";
-import { Moon, Star } from "lucide-react";
+import { Moon, X } from "lucide-react";
 
 export default function EveningReflection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,6 +10,10 @@ export default function EveningReflection() {
   const [summary, setSummary] = useState({ finished_today: "", blocked_by: "", tomorrow_plan: "", rating: 5 });
 
   useEffect(() => {
+    // Check if dismissed today
+    const today = new Date().toDateString();
+    if (localStorage.getItem("dismissed_reflection_date") === today) return;
+
     // Check if it's past 7 PM
     const hour = new Date().getHours();
     if (hour >= 19) {
@@ -21,6 +25,11 @@ export default function EveningReflection() {
       });
     }
   }, []);
+
+  const handleClose = () => {
+    localStorage.setItem("dismissed_reflection_date", new Date().toDateString());
+    setIsVisible(false);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,6 +57,16 @@ export default function EveningReflection() {
           animate={{ scale: 1, y: 0 }}
           className="bg-card border border-border max-w-lg w-full rounded-2xl p-8 relative overflow-hidden"
         >
+          {/* Nút đóng */}
+          {!isCompleted && (
+            <button 
+              onClick={handleClose}
+              className="absolute top-4 right-4 p-2 text-muted hover:text-white rounded-full hover:bg-white/10 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
+
           {isCompleted ? (
             <div className="text-center py-10">
               <Moon className="w-16 h-16 mx-auto mb-6 text-indigo-400" />
