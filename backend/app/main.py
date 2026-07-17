@@ -19,17 +19,7 @@ from app.models.analytics import AnalyticsActivity
 from app.models.knowledge import KnowledgeItem
 from app.models.news import NewsItem
 from app.models.ai_provider import AIProvider
-from app.models.quote import Quote
-from app.models.task import Task
-from app.models.study_session import StudySession
-from app.models.daily_summary import DailySummary
-from app.models.xp_log import XPLog
-from app.models.learning_record import LearningRecord
-from app.models.knowledge_node import KnowledgeNode
-from app.models.heatmap_activity import HeatmapActivity
 from app.models.mission import Mission
-from app.models.knowledge_relationship import KnowledgeRelationship
-from app.models.knowledge_update import KnowledgeUpdate
 
 app = FastAPI(title="Operation Europe OS API")
 
