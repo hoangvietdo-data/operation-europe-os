@@ -1,0 +1,21 @@
+from fastapi import APIRouter
+from app.api.v1.endpoints import scholarships, universities, roadmap, missions, documents, achievements, projects, journal, analytics, knowledge, news, mentor, settings, dashboard, auth, genome, rpg
+
+api_router = APIRouter()
+api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
+api_router.include_router(scholarships.router, prefix="/scholarships", tags=["scholarships"])
+api_router.include_router(universities.router, prefix="/universities", tags=["universities"])
+api_router.include_router(roadmap.router, prefix="/roadmap", tags=["roadmap"])
+api_router.include_router(missions.router, prefix="/missions", tags=["missions"])
+api_router.include_router(documents.router, prefix="/documents", tags=["documents"])
+api_router.include_router(achievements.router, prefix="/achievements", tags=["achievements"])
+api_router.include_router(projects.router, prefix="/projects", tags=["projects"])
+api_router.include_router(journal.router, prefix="/journal", tags=["journal"])
+api_router.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
+api_router.include_router(knowledge.router, prefix="/knowledge", tags=["knowledge"])
+api_router.include_router(news.router, prefix="/news", tags=["news"])
+api_router.include_router(mentor.router, prefix="/mentor", tags=["mentor"])
+api_router.include_router(settings.router, prefix="/settings", tags=["settings"])
+api_router.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
+api_router.include_router(genome.router, prefix="/genome", tags=["genome"])
+api_router.include_router(rpg.router, prefix="/rpg", tags=["rpg"])
