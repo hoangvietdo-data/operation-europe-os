@@ -148,6 +148,7 @@ export default function TaskManager({ onXP }: { onXP: (amount: number) => void }
       <form onSubmit={handleAddTask} className="flex items-center relative mt-auto">
         <Plus className="w-4 h-4 text-muted absolute left-3" />
         <input 
+          id="task-input"
           type="text" 
           value={newTask}
           onChange={e => setNewTask(e.target.value)}

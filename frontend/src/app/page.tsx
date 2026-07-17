@@ -43,11 +43,11 @@ export default function Dashboard() {
           <button onClick={logout} className="flex items-center space-x-2 bg-red-500/10 text-red-400 hover:bg-red-500/20 px-4 py-2 rounded-full text-sm font-medium transition-colors border border-red-500/20">
             <span>Log out</span>
           </button>
-          <button className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full text-sm font-medium transition-colors">
+          <button onClick={() => window.location.href = '/roadmap'} className="flex items-center space-x-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full text-sm font-medium transition-colors">
             <Compass className="w-4 h-4" />
             <span>Roadmap</span>
           </button>
-          <button className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+          <button onClick={() => document.getElementById('task-input')?.focus()} className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
             <Plus className="w-4 h-4" />
             <span>Add Task</span>
           </button>
