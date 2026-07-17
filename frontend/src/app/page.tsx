@@ -7,6 +7,7 @@ import StudyTimer from "@/components/dashboard/StudyTimer";
 import TaskManager from "@/components/dashboard/TaskManager";
 import AnalyticsCards from "@/components/dashboard/AnalyticsCards";
 import EveningReflection from "@/components/dashboard/EveningReflection";
+import IdentityFocusCard from "@/components/dashboard/IdentityFocusCard";
 import { useAuth } from "@/context/AuthContext";
 import api from "@/store/api";
 
@@ -61,42 +62,7 @@ export default function Dashboard() {
         {/* Main Column */}
         <div className="lg:col-span-2 space-y-8">
           
-          {/* Today's Focus */}
-          <div className="bg-card border border-border rounded-xl p-8 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-              <Target className="w-32 h-32" />
-            </div>
-            
-            <h2 className="text-sm uppercase tracking-widest text-indigo-400 font-bold mb-4">Today's Focus</h2>
-            
-            {mission ? (
-              <>
-                <h3 className="text-3xl font-bold mb-2 w-3/4">{mission.title}</h3>
-                <p className="text-muted mb-6 w-3/4">{mission.description}</p>
-                <div className="flex space-x-6 items-center">
-                  <div>
-                    <p className="text-xs text-muted mb-1">Progress</p>
-                    <p className="font-bold text-xl">{mission.progress}%</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted mb-1">Impact</p>
-                    <p className="font-bold text-xl">{mission.impact}</p>
-                  </div>
-                  <button className="ml-auto bg-white text-black px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform">
-                    Start Mission
-                  </button>
-                </div>
-              </>
-            ) : (
-              <div className="py-6">
-                <h3 className="text-2xl font-bold mb-2">No Active Mission</h3>
-                <p className="text-muted mb-6">Select a mission from your roadmap to set today's focus.</p>
-                <button className="bg-white text-black px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform">
-                  View Roadmap
-                </button>
-              </div>
-            )}
-          </div>
+          <IdentityFocusCard mission={mission} />
 
           <div className="h-[400px]">
             <TaskManager onXP={triggerXpUpdate} />
